@@ -1,18 +1,14 @@
 defmodule Brother do
-  @moduledoc """
-  Documentation for `Brother`.
-  """
+  use GenServer
 
-  @doc """
-  Hello world.
+  # client
+  def start_link(arg) do
+    GenServer.start_link(__MODULE__, arg, name: :big)
+  end
 
-  ## Examples
-
-      iex> Brother.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  # init
+  def init(arg) do
+    IO.puts("Starting...")
+    {:ok, arg}
   end
 end

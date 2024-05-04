@@ -15,7 +15,7 @@ defmodule Brother.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Brother.Application, []}
+      mod: {Brother.Application, []} # start the supervisor
     ]
   end
 
