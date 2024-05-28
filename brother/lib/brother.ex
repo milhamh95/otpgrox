@@ -1,6 +1,13 @@
 defmodule Brother do
   use GenServer
 
+  def start_child(initial_arg) do
+    DynamicSupervisor.start_child(
+      :dsup,
+      {__MODULE__, initial_arg}
+    )
+  end
+
   # client
   def start_link({name, _character_quote} = arg) do
     GenServer.start_link(__MODULE__, arg, name: name)
